@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>USM | eNavigation</title>
+<!-- Font Awesome 6 Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Google Fonts: Open Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Custom Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            usm: {
+              header: '#438eb9',
+              sidebar: '#f2f2f2',
+              'sidebar-hover': '#f9f9f9',
+              'sidebar-active': '#eaf2f8',
+              'sidebar-border': '#e5e5e5',
+              'btn-blue': '#6fb3e0',
+              'btn-green': '#87b87f',
+              'btn-gold': '#ffb752',
+              'btn-red': '#d15b47',
+              'accent-blue': '#2e8965',
+              'primary-blue': '#1e88e5'
+            }
+          },
+          fontFamily: {
+            sans: ['"Open Sans"', 'Helvetica', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="portal-typography">
+    body {
+      font-family: 'Open Sans', 'Segoe UI', Tahoma, sans-serif;
+      font-size: 13px;
+      color: #393939;
+      background-color: #e4e6e9;
+    }
+  </style>
+<style data-purpose="layout-sidebar">
+    /* Subtle tree guide for submenus */
+    .submenu-item {
+      position: relative;
+    }
+    .submenu-item::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 19px;
+      width: 1px;
+      border-left: 1px dotted #9dbcd4;
+      z-index: 1;
+    }
+    .submenu-link::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 1px;
+      position: absolute;
+      left: 19px;
+      top: 15px;
+      border-top: 1px dotted #9dbcd4;
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="min-h-screen flex flex-col bg-[#e4e6e9] antialiased">
+<!-- BEGIN: MainHeader -->
+<header class="bg-[#438eb9] h-[45px] w-full flex items-center justify-between px-0 select-none shadow-sm z-30 sticky top-0" data-purpose="main-header">
+<!-- Left: Brand Logo & Title -->
+<div class="flex items-center space-x-2 pl-3">
+<i class="fa-solid fa-graduation-cap text-white text-xl"></i>
+<span class="text-white font-medium text-[17px] tracking-wide">USM | eNavigation</span>
+</div>
+<!-- Right: User and Notification Bar -->
+<div class="flex items-stretch h-full">
+<!-- Notification Envelope Icon -->
+<button class="w-[45px] bg-[#2e8965] hover:bg-[#287456] flex items-center justify-center text-white relative transition-colors duration-150" data-purpose="notification-btn" title="Notifications" type="button">
+<i class="fa-solid fa-envelope text-sm"></i>
+</button>
+<!-- Profile Container Dropdown -->
+<div class="flex items-center px-3.5 bg-black/10 hover:bg-black/20 cursor-pointer text-white text-xs font-semibold tracking-tight transition-colors duration-150" data-purpose="user-dropdown">
+<span>VINISH SURIA A/L RAJASEGARAN</span>
+<i class="fa-solid fa-caret-down ml-2 text-[10px] text-white/80"></i>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: BreadcrumbBar -->
+<nav aria-label="Breadcrumb" class="bg-[#f5f5f5] border-b border-[#e5e5e5] h-[40px] px-3 flex items-center justify-between z-20" data-purpose="breadcrumb-nav">
+<!-- Breadcrumb Pathway -->
+<div class="flex items-center text-xs space-x-1.5 text-gray-600">
+<i class="fa-solid fa-house text-[#438eb9] text-[13px]"></i>
+<a class="text-[#438eb9] hover:underline font-normal" href="#">Home</a>
+<span class="text-gray-400 font-light">&gt;</span>
+<span class="text-gray-600">Student Affairs</span>
+<span class="text-gray-400 font-light">&gt;</span>
+<span class="text-gray-800 font-medium">eNavigation</span>
+</div>
+<!-- Language Selector Button -->
+<div>
+<button class="inline-flex items-center px-3 py-1 bg-[#d15b47] hover:bg-[#b74633] text-white text-xs font-medium rounded-sm shadow-sm transition-colors duration-150" data-purpose="language-selector" type="button">
+<span>Language</span>
+<i class="fa-solid fa-caret-down ml-2 text-[10px]"></i>
+</button>
+</div>
+</nav>
+<!-- END: BreadcrumbBar -->
+<!-- BEGIN: AppContainer -->
+<div class="flex-1 flex flex-row overflow-hidden relative">
+<!-- BEGIN: Sidebar -->
+<aside class="w-[210px] bg-[#f2f2f2] border-r border-[#dcdcdc] flex flex-col shrink-0 min-h-[calc(100vh-85px)] shadow-[1px_0_3px_rgba(0,0,0,0.05)] select-none z-10" data-purpose="sidebar">
+<!-- Top Action Shortcut 4-Box Row -->
+<div class="grid grid-cols-4 w-full h-[36px] border-b border-[#e0e0e0]" data-purpose="sidebar-shortcuts">
+<button class="bg-[#6fb3e0] hover:bg-[#4f99cf] text-white flex items-center justify-center transition-colors border-r border-white/20" title="Home">
+<i class="fa-solid fa-house text-xs"></i>
+</button>
+<button class="bg-[#87b87f] hover:bg-[#6ba063] text-white flex items-center justify-center transition-colors border-r border-white/20" title="Print">
+<i class="fa-solid fa-print text-xs"></i>
+</button>
+<button class="bg-[#ffb752] hover:bg-[#e59b34] text-white flex items-center justify-center transition-colors border-r border-white/20" title="Settings">
+<i class="fa-solid fa-gear text-xs"></i>
+</button>
+<button class="bg-[#d15b47] hover:bg-[#b74633] text-white flex items-center justify-center transition-colors" title="Log Out">
+<i class="fa-solid fa-power-off text-xs"></i>
+</button>
+</div>
+<!-- Navigation Tree Items -->
+<div class="flex-1 overflow-y-auto overflow-x-hidden text-[12px] text-[#585858]" data-purpose="sidebar-menu">
+<ul class="list-none m-0 p-0">
+<!-- Main -->
+<li class="border-b border-[#e5e5e5]">
+<a class="flex items-center px-3 py-2.5 hover:bg-[#ffffff] hover:text-[#438eb9] transition-colors" href="#">
+<span class="w-6 text-center text-[#438eb9]"><i class="fa-solid fa-house"></i></span>
+<span class="ml-1">Main</span>
+</a>
+</li>
+<!-- Student Profile -->
+<li class="border-b border-[#e5e5e5]">
+<a class="flex items-center px-3 py-2.5 hover:bg-[#ffffff] hover:text-[#438eb9] transition-colors" href="#">
+<span class="w-6 text-center text-gray-500"><i class="fa-solid fa-address-card"></i></span>
+<span class="ml-1">Student Profile</span>
+</a>
+</li>
+<!-- Academic -->
+<li class="border-b border-[#e5e5e5]">
+<a class="flex items-center justify-between px-3 py-2.5 hover:bg-[#ffffff] hover:text-[#438eb9] transition-colors" href="#">
+<div class="flex items-center">
+<span class="w-6 text-center text-gray-500"><i class="fa-solid fa-graduation-cap"></i></span>
+<span class="ml-1">Academic</span>
+</div>
+<i class="fa-solid fa-angle-right text-[10px] text-gray-400"></i>
+</a>
+</li>
+<!-- MyCSD -->
+<li class="border-b border-[#e5e5e5]">
+<a class="flex items-center px-3 py-2.5 hover:bg-[#ffffff] hover:text-[#438eb9] transition-colors" href="#">
+<span class="w-6 text-center text-gray-500"><i class="fa-solid fa-users"></i></span>
+<span class="ml-1">MyCSD</span>
+</a>
+</li>
+<!-- Digital Student Card -->
+<li class="border-b border-[#e5e5e5]">
+<a class="flex items-center px-3 py-2.5 hover:bg-[#ffffff] hover:text-[#438eb9] transition-colors" href="#">
+<span class="w-6 text-center text-gray-500"><i class="fa-solid fa-id-card"></i></span>
+<span class="ml-1">Digital Student Card</span>
+</a>
+</li>
+<!-- Application (Active Expanded Category) -->
+<li class="border-b border-[#e5e5e5] bg-[#f9f9f9]">
+<a class="flex items-center justify-between px-3 py-2.5 text-[#1963aa] font-medium bg-[#ffffff] border-l-[3px] border-[#1963aa] transition-colors" href="#">
+<div class="flex items-center">
+<span class="w-6 text-center text-[#1963aa]"><i class="fa-solid fa-list-ul"></i></span>
+<span class="ml-1 font-semibold">Application</span>
+</div>
+<i class="fa-solid fa-angle-down text-[10px] text-[#1963aa]"></i>
+</a>
+<!-- Submenu List -->
+<ul class="list-none m-0 p-0 bg-[#ffffff] submenu-item" data-purpose="application-submenus">
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">Academic Calendar</a>
+</li>
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">BPRP</a>
+</li>
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">Confirmation Letter</a>
+</li>
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">Digital Student Card</a>
+</li>
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">eDaftar</a>
+</li>
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">eDental</a>
+</li>
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">eLearning</a>
+</li>
+<!-- ACTIVE ITEM: eNavigation -->
+<li class="relative bg-[#e8f1f7]">
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#1963aa] font-bold border-l-2 border-[#1963aa] transition-colors" href="#">
+<i class="fa-solid fa-caret-right text-[10px] mr-1 text-[#1963aa]"></i> eNavigation
+                </a>
+</li>
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">ePerpustakaan</a>
+</li>
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">FIS@USM</a>
+</li>
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">Health Declaration</a>
+</li>
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">HEBAT</a>
+</li>
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">Kampus Sejahtera</a>
+</li>
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">MyGovernance@USM</a>
+</li>
+<li>
+<a class="submenu-link block pl-8 pr-2 py-1.5 text-[11.5px] text-[#666666] hover:text-[#1963aa] hover:bg-[#f0f5f8] transition-colors" href="#">MyGUIDE@USM</a>
+</li>
+</ul>
+</li>
+<!-- Update -->
+<li class="border-b border-[#e5e5e5]">
+<a class="flex items-center justify-between px-3 py-2.5 hover:bg-[#ffffff] hover:text-[#438eb9] transition-colors" href="#">
+<div class="flex items-center">
+<span class="w-6 text-center text-gray-500"><i class="fa-solid fa-pencil text-xs"></i></span>
+<span class="ml-1">Update</span>
+</div>
+<i class="fa-solid fa-angle-right text-[10px] text-gray-400"></i>
+</a>
+</li>
+</ul>
+</div>
+<!-- Bottom Sidebar Collapse Button -->
+<div class="h-10 border-t border-[#e0e0e0] flex items-center justify-center bg-[#f8f8f8]" data-purpose="sidebar-collapse-control">
+<button class="w-6 h-6 rounded-full border border-gray-300 text-gray-500 flex items-center justify-center hover:bg-gray-200 transition-colors" title="Toggle Sidebar" type="button">
+<i class="fa-solid fa-angles-left text-[10px]"></i>
+</button>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 bg-white p-5 overflow-y-auto min-h-full" data-purpose="content-area">
+<!-- Top Action Export Panel (Matching USM design aesthetic) -->
+<div class="flex items-center justify-between pb-3 mb-4 border-b border-[#e0e0e0]">
+<!-- Page Title & USM Status Tag -->
+<div class="flex items-center space-x-2">
+<span class="text-[17px] font-semibold text-[#2679b5]">USM Campus eNavigation</span>
+<span class="text-xs bg-[#e8f1f7] text-[#2679b5] px-2 py-0.5 rounded border border-[#b8d4e8]">Active Service</span>
+</div>
+<!-- Print & Export Buttons -->
+<div class="flex items-center space-x-1" data-purpose="export-controls">
+<button class="w-[32px] h-[30px] border border-[#d2d2d2] rounded-sm bg-white hover:bg-gray-50 text-[#438eb9] flex items-center justify-center transition-colors" title="Export Map Details" type="button">
+<i class="fa-solid fa-file-lines text-xs text-green-700"></i>
+</button>
+<button class="w-[32px] h-[30px] border border-[#d2d2d2] rounded-sm bg-white hover:bg-gray-50 text-[#d15b47] flex items-center justify-center transition-colors" title="Print Current View" type="button">
+<i class="fa-solid fa-print text-xs"></i>
+</button>
+</div>
+</div>
+<!-- Main Navigation Map Container Box -->
+<section class="w-full bg-white border border-[#e2e2e2] rounded shadow-sm min-h-[580px] p-6 flex flex-col" data-purpose="enavigation-workspace">
+<!-- Controls toolbar header inside panel -->
+<div class="w-full bg-[#fbfbfb] border border-[#e8e8e8] px-4 py-2.5 rounded-sm mb-5 flex flex-wrap items-center justify-between gap-3 text-xs">
+<!-- Campus Selector & Search -->
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-2">
+<label class="font-medium text-gray-700" for="campus-select">Campus:</label>
+<select class="text-xs border-gray-300 rounded focus:ring-1 focus:ring-[#438eb9] focus:border-[#438eb9] py-1 pl-2 pr-6" id="campus-select">
+<option selected="">Main Campus (Penang)</option>
+<option>Engineering Campus (Nibong Tebal)</option>
+<option>Health Campus (Kubang Kerian)</option>
+<option>IPPT (Bertam)</option>
+</select>
+</div>
+<div class="flex items-center space-x-2">
+<label class="font-medium text-gray-700" for="layer-select">Destination Type:</label>
+<select class="text-xs border-gray-300 rounded focus:ring-1 focus:ring-[#438eb9] focus:border-[#438eb9] py-1 pl-2 pr-6" id="layer-select">
+<option selected="">All Facilities &amp; Venues</option>
+<option>Academic Buildings / Schools</option>
+<option>Desasiswa (Hostels)</option>
+<option>Administrative Offices</option>
+<option>Student Centers &amp; Cafeterias</option>
+</select>
+</div>
+</div>
+<!-- Search Box -->
+<div class="flex items-center space-x-2">
+<span class="text-gray-600 font-medium">Search Location:</span>
+<div class="relative">
+<input class="text-xs border-gray-300 rounded px-2.5 py-1 w-64 focus:ring-1 focus:ring-[#438eb9] focus:border-[#438eb9]" placeholder="e.g. Dewan Tuanku Syed Putra, DK A..." type="text"/>
+<i class="fa-solid fa-magnifying-glass absolute right-2.5 top-2 text-gray-400 text-xs"></i>
+</div>
+</div>
+</div>
+<!-- Center Dashed Interactive Map Canvas Placeholder -->
+<div class="flex-1 w-full border-2 border-dashed border-[#b8d4e8] rounded-md bg-[#f7fafc] flex flex-col items-center justify-center p-12 text-center select-none" data-purpose="map-placeholder">
+<!-- Compass / Pin Animated Visual Icon -->
+<div class="w-16 h-16 rounded-full bg-[#e8f1f7] text-[#438eb9] flex items-center justify-center mb-4 shadow-sm border border-[#cbe1ee]">
+<i class="fa-solid fa-map-location-dot text-2xl"></i>
+</div>
+<!-- Main Text Label -->
+<h2 class="text-xl font-bold text-[#2b7dbc] mb-1 tracking-tight">eNavigation map area</h2>
+<p class="text-gray-500 text-xs tracking-normal mb-5">(Ready for campus interactive map and route navigation tools)</p>
+<!-- Quick Navigation Actions Bar Placeholder -->
+<div class="flex items-center space-x-3 text-xs">
+<button class="px-3 py-1.5 bg-[#438eb9] hover:bg-[#34789e] text-white rounded font-medium shadow-sm transition-colors flex items-center space-x-1.5">
+<i class="fa-solid fa-route text-[11px]"></i>
+<span>Find Route</span>
+</button>
+<button class="px-3 py-1.5 bg-white hover:bg-gray-50 border border-gray-300 text-gray-700 rounded font-medium shadow-sm transition-colors flex items-center space-x-1.5">
+<i class="fa-solid fa-bus text-[11px] text-[#ffb752]"></i>
+<span>USM Transit Shuttle</span>
+</button>
+<button class="px-3 py-1.5 bg-white hover:bg-gray-50 border border-gray-300 text-gray-700 rounded font-medium shadow-sm transition-colors flex items-center space-x-1.5">
+<i class="fa-solid fa-location-crosshairs text-[11px] text-[#87b87f]"></i>
+<span>Current GPS Location</span>
+</button>
+</div>
+</div>
+<!-- Footer Info Bar in Panel -->
+<div class="mt-4 pt-3 border-t border-[#f0f0f0] flex items-center justify-between text-[11px] text-gray-400">
+<div>Universiti Sains Malaysia © 2026 Student Information System</div>
+<div class="flex items-center space-x-3">
+<span>Coordinate System: WGS 84</span>
+<span>•</span>
+<span class="text-[#438eb9] hover:underline cursor-pointer">Help &amp; Documentation</span>
+</div>
+</div>
+</section>
+</main>
+<!-- END: MainContent -->
+</div>
+<!-- END: AppContainer -->
+<!-- BEGIN: Interactive Behavior Script -->
+<script data-purpose="sidebar-interactions">
+    // Optional interactive hook for sidebar toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const collapseBtn = document.querySelector('[data-purpose="sidebar-collapse-control"] button');
+      if (collapseBtn) {
+        collapseBtn.addEventListener('click', () => {
+          console.log('Sidebar toggle triggered');
+        });
+      }
+    });
+  </script>
+<!-- END: Interactive Behavior Script -->
+</body></html>
