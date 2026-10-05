@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faHouse } from "@fortawesome/free-solid-svg-icons";
+import RouteTitle from "@/components/shell/RouteTitle";
 
 export default function BreadcrumbBar() {
   return (
@@ -13,7 +14,9 @@ export default function BreadcrumbBar() {
         <span className="text-zinc-400">&gt;</span>
         <span className="hidden text-zinc-600 sm:inline">Student Affairs</span>
         <span className="hidden text-zinc-400 sm:inline">&gt;</span>
-        <span className="font-medium text-zinc-800">eNavigation</span>
+        <span className="font-medium text-zinc-800">
+          <RouteTitle />
+        </span>
       </div>
 
       <button

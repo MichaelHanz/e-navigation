@@ -1,32 +1,41 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
+"use client";
+
+import { useEffect, useRef } from "react";
+import * as maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
 
 export default function EnavigationPage() {
-  return (
-    <section className="flex min-h-[560px] flex-col rounded border border-zinc-200 bg-white p-4 shadow-sm sm:p-6">
-      <div className="mb-4 flex items-center justify-between border-b border-zinc-200 pb-3">
-        <div className="flex items-center gap-2">
-          <h1 className="text-lg font-semibold text-usm-header">
-            USM Campus eNavigation
-          </h1>
-          <span className="rounded border border-usm-header/30 bg-usm-lilac px-2 py-0.5 text-xs text-usm-header">
-            Active Service
-          </span>
-        </div>
-      </div>
+  const mapContainerRef = useRef<HTMLDivElement | null>(null);
 
-      <div className="flex flex-1 flex-col items-center justify-center rounded-md border-2 border-dashed border-usm-header/30 bg-zinc-50 p-8 text-center">
-        <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-usm-header/30 bg-usm-lilac text-usm-header">
-          <FontAwesomeIcon icon={faMapLocationDot} className="text-2xl" />
-        </div>
-        <h2 className="text-xl font-bold text-usm-header">
-          eNavigation map area
-        </h2>
-        <p className="mt-1 text-sm text-zinc-500">
-          Placeholder for the future campus map. MapLibre and GeoJSON are not
-          wired in this slice.
-        </p>
-      </div>
-    </section>
-  );
+  useEffect(() => {
+    if (!mapContainerRef.current) return;
+
+    const map = new maplibregl.Map({
+      container: mapContainerRef.current,
+      style: {
+        version: 8,
+        sources: {
+          osm: {
+            type: "raster",
+            tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+            tileSize: 256,
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          },
+        },
+        layers: [{ id: "osm", type: "raster", source: "osm" }],
+      },
+      center: [100.3025, 5.3561],
+      zoom: 15,
+    });
+
+    map.addControl(new maplibregl.NavigationControl(), "top-right");
+    map.addControl(new maplibregl.GeolocateControl({}), "top-right");
+
+    return () => {
+      map.remove();
+    };
+  }, []);
+
+  return <div ref={mapContainerRef} style={{ position: "fixed", inset: 0 }} />;
 }

@@ -5,6 +5,7 @@ import {
   faGraduationCap,
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
+import RouteTitle from "@/components/shell/RouteTitle";
 
 export default function PortalHeader({
   onMenuClick,
@@ -24,7 +25,7 @@ export default function PortalHeader({
         </button>
         <FontAwesomeIcon icon={faGraduationCap} className="text-lg" />
         <span className="text-base font-medium tracking-wide">
-          USM | eNavigation
+          USM | <RouteTitle />
         </span>
       </div>
 
