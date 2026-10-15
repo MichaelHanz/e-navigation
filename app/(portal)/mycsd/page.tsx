@@ -13,8 +13,7 @@ export default function MyCsdPage() {
       <div className="flex flex-1 flex-col items-center justify-center rounded-md border-2 border-dashed border-usm-header/30 bg-zinc-50 p-8 text-center">
         <h2 className="text-xl font-bold text-usm-header">MyCSD</h2>
         <p className="mt-1 text-sm text-zinc-500">
-          Placeholder for the MyCSD portal home. Content is not wired in this
-          slice.
+          Placeholder for the MyCSD portal home.
         </p>
       </div>
     </section>
