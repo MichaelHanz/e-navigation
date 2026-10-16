@@ -16,15 +16,17 @@ export default function EnavigationPage() {
       style: {
         version: 8,
         sources: {
-          osm: {
+          satellite: {
             type: "raster",
-            tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+            tiles: [
+              "https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2020_3857/default/g/{z}/{y}/{x}.jpg",
+            ],
             tileSize: 256,
             attribution:
               '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
           },
         },
-        layers: [{ id: "osm", type: "raster", source: "osm" }],
+        layers: [{ id: "satellite", type: "raster", source: "satellite" }],
       },
       center: [100.3025, 5.3561],
       zoom: 15,
