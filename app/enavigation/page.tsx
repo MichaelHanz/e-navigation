@@ -7,6 +7,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 export default function EnavigationPage() {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
+  //Use Effect for requesting the map data the moment the app/site is clicked
   useEffect(() => {
     if (!containerRef.current) return;
 
