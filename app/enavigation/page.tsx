@@ -14,7 +14,7 @@ export default function EnavigationPage() {
 
     const map = new MapLibreMap({
       container: containerRef.current,
-      style: "https://tiles.openfreemap.org/styles/liberty",
+      style: "/styles/campus.json",
       center: [100.3025, 5.3561],
       zoom: 15,
     });
