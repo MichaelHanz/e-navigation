@@ -1,0 +1,165 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.301557, 5.360408]
+      },
+      "properties": {
+        "marker-color": "rgba(89, 86, 176, 1)",
+        "marker-size": "medium",
+        "marker-symbol": "cafe",
+        "": 0,
+        "name": "Cafeteria Permai",
+        "Category": "food",
+        "aliases": ["Permai"]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.300576, 5.357759]
+      },
+      "properties": {
+        "marker-color": "rgba(89, 86, 176, 1)",
+        "marker-size": "medium",
+        "marker-symbol": "cafe",
+        "": 0,
+        "name": "Cafeteria Bakti",
+        "Category": "food",
+        "aliases": ["Bakti"]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.296159, 5.354294]
+      },
+      "properties": {
+        "marker-color": "rgba(89, 86, 176, 1)",
+        "marker-size": "medium",
+        "marker-symbol": "cafe",
+        "": 0,
+        "name": "Cafeteria Damai",
+        "Category": "food",
+        "aliases": ["Damai"]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.296985, 5.354273]
+      },
+      "properties": {
+        "marker-color": "rgba(89, 86, 176, 1)",
+        "marker-size": "medium",
+        "marker-symbol": "cafe",
+        "": 0,
+        "name": "Cafeteria Aman",
+        "Category": "food",
+        "aliases": ["Aman"]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.295554, 5.355836]
+      },
+      "properties": {
+        "marker-color": "rgba(89, 86, 176, 1)",
+        "marker-size": "medium",
+        "marker-symbol": "cafe",
+        "": 0,
+        "name": "Cafeteria Kembara",
+        "Category": "food",
+        "aliases": ["Kembara"]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.299774, 5.355002]
+      },
+      "properties": {
+        "marker-color": "rgba(89, 86, 176, 1)",
+        "marker-size": "medium",
+        "marker-symbol": "cafe",
+        "": 0,
+        "name": "Cafeteria Harapan",
+        "Category": "food",
+        "aliases": ["Harapan"]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.303606, 5.360442]
+      },
+      "properties": {
+        "marker-color": "rgba(89, 86, 176, 1)",
+        "marker-size": "medium",
+        "marker-symbol": "cafe",
+        "": 0,
+        "name": "Cafeteria Cahaya Gemilang",
+        "Category": "food",
+        "aliases": ["Cahaya Gemilang"]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.29136, 5.356197]
+      },
+      "properties": {
+        "marker-color": "rgba(89, 86, 176, 1)",
+        "marker-size": "medium",
+        "marker-symbol": "cafe",
+        "": 0,
+        "name": "Cafeteria Tekun",
+        "Category": "food",
+        "aliases": ["Tekun"]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.289134, 5.356549]
+      },
+      "properties": {
+        "marker-color": "rgba(89, 86, 176, 1)",
+        "marker-size": "medium",
+        "marker-symbol": "cafe",
+        "": 0,
+        "name": "Cafeteria Restu-Saujana",
+        "Category": "food",
+        "aliases": ["Restu Saujana"]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "rgba(89, 86, 176, 1)",
+        "marker-size": "medium",
+        "marker-symbol": "cafe",
+        "": 0,
+        "name": "Cafeteria Indah",
+        "Category": "food",
+        "aliases": ["Indah"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.295696, 5.356893]
+      }
+    }
+  ]
+}
