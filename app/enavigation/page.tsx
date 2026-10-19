@@ -22,10 +22,16 @@ export default function EnavigationPage() {
       style: "/styles/campus.json",
       center: [100.3025, 5.3561],
       zoom: 15,
+      minZoom: 14,
+      // maxBounds: [
+      //   [100.28766302417512, 5.35043160403761],
+      //   [100.3115472551167, 5.363801703553747],
+      // ],
+      dragRotate: false,
     });
 
     map.addControl(
-      new NavigationControl({ showCompass: false }),
+      new NavigationControl({ showCompass: false, showZoom: true }),
       "bottom-right",
     );
 
@@ -36,6 +42,11 @@ export default function EnavigationPage() {
       }),
       "bottom-right",
     );
+    map.touchZoomRotate.disableRotation();
+    map.keyboard.disableRotation();
+    map.on("contextmenu", (e) => console.log(e.lngLat));
+
+    map.on("click", (e) => console.log(e.lngLat));
 
     return () => map.remove();
   }, []);
