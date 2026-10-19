@@ -27,7 +27,7 @@ export default function EnavigationPage() {
       //   [100.28766302417512, 5.35043160403761],
       //   [100.3115472551167, 5.363801703553747],
       // ],
-      dragRotate: false,
+      //dragRotate: false,
     });
 
     map.addControl(
