@@ -8,7 +8,7 @@ export default function EnavigationPage() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   setWorkerUrl("/maplibre-gl-worker.mjs");
 
-  //Use Effect for requesting the map data the moment the app/site is clicked
+  //Use Effect for requesting the map data the moment the app/site is clicked or directed to
   useEffect(() => {
     if (!containerRef.current) return;
 

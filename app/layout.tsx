@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "USM | eNavigation",
-  description: "USM campus eNavigation demo prototype",
+  description: "USM campus eNavigation",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
