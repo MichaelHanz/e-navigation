@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { MapLibreMap, setWorkerUrl } from "maplibre-gl";
+import {
+  MapLibreMap,
+  setWorkerUrl,
+  NavigationControl,
+  GeolocateControl,
+} from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 export default function EnavigationPage() {
@@ -18,6 +23,19 @@ export default function EnavigationPage() {
       center: [100.3025, 5.3561],
       zoom: 15,
     });
+
+    map.addControl(
+      new NavigationControl({ showCompass: false }),
+      "bottom-right",
+    );
+
+    map.addControl(
+      new GeolocateControl({
+        positionOptions: { enableHighAccuracy: true },
+        trackUserLocation: true,
+      }),
+      "bottom-right",
+    );
 
     return () => map.remove();
   }, []);
